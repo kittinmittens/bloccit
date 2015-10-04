@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'welcome/infex'
+  get 'welcome/index'
 
   get 'welcome/about'
 
-  root to: 'welcome#infex'
+  get 'welcome/contact'
+
+  root to: 'welcome#index'
 end
