@@ -16,6 +16,11 @@ posts = Post.all
   )
 end
 
+Post.create!(
+title: "unique post this is",
+body: "unique body as well"
+)
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
