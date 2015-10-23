@@ -1,0 +1,23 @@
+<%= form_for [topic, description] do |f| %>
+  <% if topic.errors.any? %>
+  <div class="alert alert-danger">
+    <h4><%= pluralize(topic.errors.count, "error") %>.</h4>
+    <ul>
+      <% topic.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= form_group_tag(topic.errors[:title]) do %>
+  <%= f.label :topic %>
+  <%= f.text_field :topic, class: 'form-control', placeholder: "Enter topic title" %>
+  <% end %>
+  <%form_group_tag(topic.errors[:body]) do %>
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter description body" %>
+  <% end %>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+<% end %>
