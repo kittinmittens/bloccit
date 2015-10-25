@@ -5,6 +5,8 @@ end
 
 resources :users, only: [:new, :create]
 
+get 'confirmation' => 'users#confirm'
+
 get 'about' => 'welcome#about'
 root to: 'welcome#index'
 
