@@ -10,9 +10,10 @@
      <p><%= @post.body %></p>
    </div>
    <div class="col-md-4">
- # #5
+     <% if user_is_authorized_for_post?(@post) %>
       <%= link_to "Edit", edit_topic_post_path(@post.topic, @post), class: 'btn btn-success' %>
   // #43
       <%= link_to "Delete Post", [@post.topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>
+      <% end %>
      </div>
  </div>
