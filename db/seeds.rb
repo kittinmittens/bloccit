@@ -1,5 +1,10 @@
 include RandomData
 
+mod = User.create!(
+  name: 'mcmod'
+  email: 'mcmod@example.com'
+  password: 'helloworld'
+)
 # Create Users
 5.times do
   user = User.create!(

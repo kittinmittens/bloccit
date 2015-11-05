@@ -67,4 +67,12 @@ class PostsController < ApplicationController
       redirect_to [post.topic, post]
     end
   end
+  def authorize_mod
+  post = Post.find(params[:id])
+# #11
+  unless current_user == post.mod || current_user.mod?
+    flash[:error] = "You must be a mod yo."
+    redirect_to [post.topic, post]
+  end
+end
 end

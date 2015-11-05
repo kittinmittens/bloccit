@@ -64,5 +64,11 @@ end
       flash[:error] = "You must be an admin to do that."
       redirect_to topics_path
     end
+    def mod_user
+      unless mod_user.mod?
+        flash[:error] = "You must be a mod yo."
+        redirect_to topics_path
+      end
+    end
   end
 end
