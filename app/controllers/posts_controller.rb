@@ -33,7 +33,6 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.assign_attributes(post_params)
-
     if @post.save
       flash[:notice] = "Post as update."
       redirect_to [@post.topic, @post]
@@ -52,9 +51,9 @@ class PostsController < ApplicationController
     else
       flash[:error] = "There was an error deleting the post."
       render :show
-
     end
   end
+
   private
   def post_params
     params.require(:post).permit(:title, :body)
