@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
       let(:user_with_invalid_name) { build(:user, name: "") }
       let(:user_with_invalid_email) { build(:user, email: "") }
       let(:user_with_invalid_email_format) { build(:user, email: "invalid_format") }
-      
+
      it "should be an invalid user due to blank name" do
        expect(user_with_invalid_name).to_not be_valid
      end
@@ -114,5 +114,10 @@ RSpec.describe User, type: :model do
        expect(User.avatar_url(known_user, 48)).to eq(expected_gravatar)
      end
    end
+   describe "#generate_auth_token" do
+     it "creates a token" do
+       expect(user.auth_token).to_not be_nil
+      end
+    end
   end
 end
